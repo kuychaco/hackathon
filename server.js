@@ -5,6 +5,9 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 
+//global host variable
+host = process.env.IP || "127.0.0.1";
+
 app.get('/data', function(req, res) {
 	console.log("asdf");
 	res.json({data: "some temp data"});
