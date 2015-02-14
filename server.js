@@ -6,6 +6,7 @@ var config = require('./config/environment');
 var express = require('express');
 var app = express();
 
+<<<<<<< HEAD
 app.get('/search/:id', function(req, res) {
 	var util = require('util'),
     OperationHelper = require('apac').OperationHelper;
@@ -24,6 +25,12 @@ app.get('/search/:id', function(req, res) {
 	    // var r = JSON.stringify(results.ItemSearchResponse);
 	    res.json(JSON.stringify({data: {ASIN: r.Item[0].ASIN, productName: r.Item[0].ItemAttributes[0].Title}}));
 	});
+//global host variable
+host = process.env.IP || "127.0.0.1";
+
+app.get('/data', function(req, res) {
+	console.log("asdf");
+	res.json({data: "some temp data"});
 });
 
 app.get('/data/:id', function(req, res) {

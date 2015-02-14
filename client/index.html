@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8" />
-		<title> D3 Data Visualization </title>
-
-		
-	</head>
-
-	<body>
-		<h1> Welcome to a D3 app!</h1>
-		<br/>
-		<input type="text" value="" onClick=""/>
-		<input type="button" value="search" onClick=""/>
-		<div class="" id=""></div>
+<head>
+  <meta charset="utf-8"/>
+  <title> D3 Data Visualization </title>
 
 
-		<!-- Javascript  -->
-		<script type="text/javascript">
-		(function getNext(productName, callback) {
-		  var httpRequest;
-		  // document.getElementById("ajaxButton").onclick = function() { makeRequest('test.html'); };
+</head>
 
-		  function makeRequest(url) {
-		    if (window.XMLHttpRequest) { // Mozilla, Safari, ...
-		      httpRequest = new XMLHttpRequest();
-		    } else if (window.ActiveXObject) { // IE
-		      try {
-		        httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-		      } 
-		      catch (e) {
-		        try {
-		          httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-		        } 
-		        catch (e) {}
-		      }
-		    }
+<body>
+<h1> Welcome to a D3 app!</h1>
+<br/>
+<input type="text" value="" onClick=""/>
+<input type="button" value="search" onClick=""/>
 
-		    if (!httpRequest) {
-		      alert('Giving up :( Cannot create an XMLHTTP instance');
-		      return false;
-		    }
-		    httpRequest.onreadystatechange = alertContents;
-		    httpRequest.open('GET', url);
-		    httpRequest.send();
-		  }
+<div class="" id=""></div>
 
-		  function alertContents() {
-		    if (httpRequest.readyState === 4) {
-		      if (httpRequest.status === 200) {
-		        console.log(httpRequest.responseText);
-		      } else {
-		        alert('There was a problem with the request.');
-		      }
-		    }
-		  }
-		  makeRequest('http://localhost:3000/data' + productName);
-		})('', console.log); // D3 function goes here
-		</script>
-		<script type="text/javascript" src=""></script>
-		<script type="text/javascript" src=""></script>
-		<script type="text/javascript" src=""></script>
-		<script type="text/javascript" src=""></script>
-	</body>
+
+<!-- Javascript  -->
+<script type="text/javascript">
+  (function getNext(productName, callback) {
+    var httpRequest;
+    // document.getElementById("ajaxButton").onclick = function() { makeRequest('test.html'); };
+
+    function makeRequest(url) {
+      if(window.XMLHttpRequest) { // Mozilla, Safari, ...
+        httpRequest = new XMLHttpRequest();
+      } else if(window.ActiveXObject) { // IE
+        try {
+          httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch(e) {
+          try {
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          catch(e) {
+          }
+        }
+      }
+
+      if(!httpRequest) {
+        alert('Giving up :( Cannot create an XMLHTTP instance');
+        return false;
+      }
+      httpRequest.onreadystatechange = alertContents;
+      httpRequest.open('GET', url);
+      httpRequest.send();
+    }
+
+    function alertContents() {
+      if(httpRequest.readyState === 4) {
+        if(httpRequest.status === 200) {
+          console.log(httpRequest.responseText);
+        } else {
+          alert('There was a problem with the request.');
+        }
+      }
+    }
+
+    //makeRequest('http://localhost:3000/data' + productName);
+    makeRequest('https://amazon-product-data-viz.herokuapp.com/data' + productName);
+  })('', console.log); // D3 function goes here
+</script>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript" src=""></script>
+<script type="text/javascript" src=""></script>
+</body>
 
 </html>
