@@ -6,7 +6,6 @@ var config = require('./config/environment');
 var express = require('express');
 var app = express();
 
-<<<<<<< HEAD
 app.get('/search/:id', function(req, res) {
 	var util = require('util'),
     OperationHelper = require('apac').OperationHelper;
